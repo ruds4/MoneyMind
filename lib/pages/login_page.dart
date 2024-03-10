@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:money_mind/components/my_textfield.dart';
 import 'package:money_mind/components/my_button.dart';
 import 'package:money_mind/components/square_tile.dart';
-import 'home_page.dart'; // Make sure to import your HomePage class correctly
+import 'home_page.dart';
+// Make sure to import your HomePage class correctly
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -13,26 +14,25 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown.shade100,
+      backgroundColor: Color(0xFFF6EEE5),
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 25),
-              const Icon(Icons.lock, size: 100),
-              const SizedBox(height: 50),
+
+              Image.asset('lib/images/transparent_background_image.png', width: 200, height: 200),
               const Text(
                 'Welcome back, you\'ve been missed!',
                 style: TextStyle(color: Colors.blueGrey),
               ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 20),
               MyTextField(
                 controller: unameController,
                 hintText: 'Username',
                 obscureText: false,
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               MyTextField(
                 controller: pwdController,
                 hintText: 'Password',
@@ -58,7 +58,7 @@ class LoginPage extends StatelessWidget {
                 // Assuming MyButton takes an onTap parameter
                 // Add other necessary parameters for MyButton
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 8),
             TextField(
               controller: amountController,
-              keyboardType: TextInputType.numberWithOptions(decimal: true),
+              keyboardType: const TextInputType.numberWithOptions(decimal: true),
               style: const TextStyle(color: Colors.black87),
               decoration: InputDecoration(
                 hintText: 'Amount',
@@ -105,16 +105,21 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Consumer<ExpenseData>(
       builder: (context, value, child) => Scaffold(
-        backgroundColor: Colors.brown.shade100, // Ensure background is white for contrast
+        backgroundColor: const Color(0xFFF6EEE5), // Ensure background is white for contrast
         appBar: AppBar(
-          title: Text('Expenses', style: TextStyle(color: Colors.brown.shade100)),
-          backgroundColor: Colors.black87, // Black AppBar for contrast
+          toolbarHeight: 70,
+          title: const Text('Expenses',
+            style: TextStyle(
+                color: Color(0xFFF6EEE5),
+                fontWeight: FontWeight.bold,
+                fontSize: 25),),
+          backgroundColor: const Color(0xFF2D241E), // Black AppBar for contrast
         ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: addNewExpenseBox,
           label: Text('Add Expense', style: TextStyle(color: Colors.brown.shade100)), // White text for visibility
           icon: Icon(Icons.add, color: Colors.brown.shade100), // White icon for visibility
-          backgroundColor: Colors.black87, // Black background for button
+          backgroundColor: const Color(0xFF2D241E), // Black background for button
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
@@ -125,7 +130,7 @@ class _HomePageState extends State<HomePage> {
           itemBuilder: (context, index) {
             final expense = value.getAllExpenseList()[index];
             return Container(
-              margin: const EdgeInsets.all(8.0),
+              margin: const EdgeInsets.all(5.0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 color: Colors.white.withOpacity(0.5),
@@ -135,9 +140,10 @@ class _HomePageState extends State<HomePage> {
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
                   child: ListTile(
-                    title: Text(expense.name, style: TextStyle(color: Colors.black87)),
-                    subtitle: Text(expense.dateTime.toString(), style: TextStyle(color: Colors.brown.shade300)),
-                    trailing: Text('${expense.amount} rs', style: TextStyle(color: Colors.black87)),
+                    title: Text(expense.name, style: const TextStyle(
+                        color: Color(0xFF2D241E))),
+                    subtitle: Text(expense.dateTime.toString(), style: const TextStyle(color: Color(0xFF2D241E), fontSize: 12)),
+                    trailing: Text('${expense.amount} rs', style: const TextStyle(color: Color(0xFF2D241E))),
                   ),
                 ),
               ),
